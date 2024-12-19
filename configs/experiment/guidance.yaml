@@ -1,0 +1,30 @@
+# @package _global_
+general:
+    name : 'guidance_HIV'
+    gpus : 1
+    wandb: 'disabled'
+    sample_every_val: 1
+    samples_to_generate: 100
+    #final_model_samples_to_generate: 100
+    final_model_chains_to_save: 0
+    samples_to_save: 2
+    chains_to_save: 0
+    number_chain_steps: 10        # Number of frames in each gif
+    # THIS SHOULD BE THE SAME AS THE REGRESSION MODEL THAT IS LOADED
+    guidance_target: 'HIV'            # 'mu', 'homo', 'both', 'no-target'
+
+    trained_regressor_path: /home/acm512/Diff4VS/src/outputs/2024-04-06/01-45-31/checkpoints/regressor/epoch=1199.ckpt
+    test_only: /home/acm512/Diff4VS/checkpoint_moses.ckpt
+
+train:
+    batch_size: 1               # Needs to be 1 for testing
+    save_model: False
+model:
+    n_layers: 2
+    extra_features: 'all'
+guidance:
+    lambda_guidance: 100.0 #300.0 
+    n_experiments: 2          # Change to 100
+dataset:
+    remove_h: True
+    filter: true

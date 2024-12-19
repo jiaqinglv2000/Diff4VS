@@ -1,0 +1,3 @@
+name: 'HIV'
+datadir: 'data/HIV/HIV_pyg/'
+remove_h: null

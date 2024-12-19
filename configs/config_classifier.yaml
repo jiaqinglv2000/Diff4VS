@@ -1,0 +1,29 @@
+general:
+    name : 'regressor'
+    gpus : 1
+    wandb: 'online'
+    remove_h: True
+    guidance_target: 'HIV'                   # 'mu', 'homo', 'both', 'no-target'
+train:
+    n_epochs: 1200
+    batch_size: 256
+    save_model: True
+    num_workers: 0
+
+model:
+    n_layers: 5
+    lambda_train: [2, 0]
+    extra_features: null
+    hidden_mlp_dims: { 'X': 256, 'E': 128, 'y': 128 }
+
+    # The dimensions should satisfy dx % n_head == 0
+    hidden_dims: { 'dx': 256, 'de': 64, 'dy': 64, 'n_head': 8, 'dim_ffX': 256, 'dim_ffE': 128, 'dim_ffy': 128 }
+
+dataset:
+    name: 'HIV'
+    datadir: 'data/HIV/HIV_pyg/'
+    remove_h: null
+
+
+
+
